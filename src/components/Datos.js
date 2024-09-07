@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-//import JSONPretty from "react-json-pretty";
+
 import React from "react";
 import { Gallery } from "./Gallery";
 
@@ -14,6 +14,7 @@ export const Datos = () => {
         <p>{user.email}</p>
         <Gallery />
       </div>
+      
     )
 
   );

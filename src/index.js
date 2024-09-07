@@ -1,15 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { InstantApp } from "./InstantApp";
-
 import { Auth0Provider } from "@auth0/auth0-react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
-
-/*   const domain = process.env.REACT_APP_AUTH0_DOMAIN
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID */
 
 
 
@@ -17,15 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-   domain="dev-qx2kgsnhweq8skcc.us.auth0.com"
-   clientId="O0lVJIlPnqDvPfJSzQcVMwzoDaJtJV7S"
-   authorizationParams={{
-     redirect_uri: window.location.origin
-   }}
+      domain="dev-qx2kgsnhweq8skcc.us.auth0.com"
+      clientId="O0lVJIlPnqDvPfJSzQcVMwzoDaJtJV7S"
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
     >
-      
-      <InstantApp/>
+      <InstantApp />
     </Auth0Provider>
   </React.StrictMode>
 );
-
