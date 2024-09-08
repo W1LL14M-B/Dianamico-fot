@@ -8,6 +8,9 @@ export const LoginBoton = () => {
       <button onClick={() => loginWithRedirect()} className="btn btn-primary">
         Login
       </button>
+      <div>
+        IMAGEN
+      </div>
 
     </div>
   );

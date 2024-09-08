@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+//import { useAuth0 } from "@auth0/auth0-react";
 import photo1 from "../assets/images/photo1.jpg";
 import photo2 from "../assets/images/photo2.jpg";
 import photo3 from "../assets/images/photo3.jpg";
@@ -10,7 +11,32 @@ import photo7 from "../assets/images/photo7.jpg";
 import photo8 from "../assets/images/photo8.jpg";
 import photo9 from "../assets/images/photo9.jpg";
 
+
+
 export const Gallery = () => {
+
+
+  const [photos, setPhotos] = useState(() => {
+    const storedPhotos = localStorage.getItem("photos");
+    return storedPhotos ? JSON.parse(storedPhotos) : [
+      { id: 1, url: photo1, reactions: 0 },
+      { id: 2, url: photo2, reactions: 0 },
+      { id: 3, url: photo3, reactions: 0 },
+      { id: 4, url: photo4, reactions: 0 },
+      { id: 5, url: photo5, reactions: 0 },
+      { id: 6, url: photo6, reactions: 0 },
+      { id: 7, url: photo7, reactions: 0 },
+      { id: 8, url: photo8, reactions: 0 },
+      { id: 9, url: photo9, reactions: 0 },
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("photos", JSON.stringify(photos));
+  }, [photos]);
+
+/* 
+
   const [photos, setPhotos] = useState([
     { id: 1, url: photo1, reactions: 0 },
     { id: 2, url: photo2, reactions: 0 },
@@ -22,6 +48,8 @@ export const Gallery = () => {
     { id: 8, url: photo8, reactions: 0 },
     { id: 9, url: photo9, reactions: 0 },
   ]);
+ */
+ 
 
 
   const addReaction = (id) => {
@@ -30,6 +58,16 @@ export const Gallery = () => {
         photo.id === id ? { ...photo, reactions: photo.reactions + 1 } : photo
       )
     );
+  };
+
+  const handleShare = async (id) => {
+    const shareUrl = `${window.location.href}#photo-${id}`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      alert('¡Enlace copiado al portapapeles!');
+    } catch (err) {
+      console.error('Error al copiar el enlace:', err);
+    }
   };
 
 
@@ -48,22 +86,17 @@ export const Gallery = () => {
             <div className="m-3 text-center">
               <p className="card-text">Reactions: {photo.reactions}</p>
               <button
-                className="btn btn-primary m-2 custom-btn"
+                className="btn btn-primary m-2 btn-sm"
                 onClick={() => addReaction(photo.id)}
               >
                 Me gusta
               </button>
               <button
-                className="btn btn-secondary custom-btn"
-                onClick={() =>
-                  navigator.clipboard.writeText(
-                    window.location.href + `#photo-${photo.id}`
-                  )
-                }
+                className="btn btn-secondary btn-sm"
+                onClick={() => handleShare(photo.id)}
               >
                 Compartir
               </button>
-         
             </div>
           </div>
         ))}
