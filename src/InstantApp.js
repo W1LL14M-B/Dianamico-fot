@@ -24,7 +24,7 @@ export const InstantApp = () => {
 
   return (
     <div className="container ">
-      <div className="row justify-content-center d-flex">
+      <div className="row justify-content-center d-flex"> 
         <div className="col-12 text-center">
           <h1>Viaje Dinámico</h1>
           {isAuthenticated ? <LogoutBoton /> : <LoginBoton />}
