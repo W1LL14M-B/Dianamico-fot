@@ -4,4 +4,52 @@
     object-fit: cover; 
   }
 
- 
+
+
+
+  /*  vista principal */
+  body {
+    background-color: #1a9ba796; /* Color esmeralda */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Opcional, para definir la fuente */
+  }
+  
+  .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
+  }
+  
+
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espacio entre imágenes */
+    padding: 20px;
+  }
+  
+  .image-container img {
+    width: 289px;
+    height: auto; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease; /* Efecto de transición */
+  }
+  
+  /* Estilo específico para la imagen 'tre' */
+  .image-container img.img-tre {
+    width: 429px; /* Ajusta el tamaño específico para 'tre' */
+  }
+  
+  /* Estilo específico para la imagen 'pik' */
+  .image-container img.img-pik {
+    width: 429px; /* Ajusta el tamaño específico para 'pik' */
+  }
+  
+  .image-container img:hover {
+    transform: scale(1.1); 
+  }
+
+

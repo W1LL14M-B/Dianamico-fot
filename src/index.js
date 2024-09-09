@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { InstantApp } from "./InstantApp";
 import { Auth0Provider } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './styles.css';
 
 
 

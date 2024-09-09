@@ -86,13 +86,13 @@ export const Gallery = () => {
             <div className="m-3 text-center">
               <p className="card-text">Reactions: {photo.reactions}</p>
               <button
-                className="btn btn-primary m-2 btn-sm"
+                className="btn btn-primary m-2 btn-sm custon-btn"
                 onClick={() => addReaction(photo.id)}
               >
                 Me gusta
               </button>
               <button
-                className="btn btn-secondary btn-sm"
+                className="btn btn-secondary btn-sm custon-btn"
                 onClick={() => handleShare(photo.id)}
               >
                 Compartir
