@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-//import { useAuth0 } from "@auth0/auth0-react";
+
 import photo1 from "../assets/images/photo1.jpg";
 import photo2 from "../assets/images/photo2.jpg";
 import photo3 from "../assets/images/photo3.jpg";
@@ -35,21 +35,6 @@ export const Gallery = () => {
     localStorage.setItem("photos", JSON.stringify(photos));
   }, [photos]);
 
-/* 
-
-  const [photos, setPhotos] = useState([
-    { id: 1, url: photo1, reactions: 0 },
-    { id: 2, url: photo2, reactions: 0 },
-    { id: 3, url: photo3, reactions: 0 },
-    { id: 4, url: photo4, reactions: 0 },
-    { id: 5, url: photo5, reactions: 0 },
-    { id: 6, url: photo6, reactions: 0 },
-    { id: 7, url: photo7, reactions: 0 },
-    { id: 8, url: photo8, reactions: 0 },
-    { id: 9, url: photo9, reactions: 0 },
-  ]);
- */
- 
 
 
   const addReaction = (id) => {
